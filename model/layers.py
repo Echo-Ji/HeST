@@ -228,11 +228,11 @@ class STEncoder(nn.Module):
         """
         Compute the Chebyshev Polynomial, according to the graph laplacian.
 
-        :param laplacian: the graph laplacian, [N, N].
-        :return: the multi order Chebyshev laplacian, [K, N, N].
+        :param laplacian: the graph laplacian, [v, v].
+        :return: the multi order Chebyshev laplacian, [K, v, v].
         """
-        N = laplacian.size(0)  # [N, N]
-        multi_order_laplacian = torch.zeros([K, N, N], device=laplacian.device, dtype=torch.float)  # [K, N, N]
+        N = laplacian.size(0)  
+        multi_order_laplacian = torch.zeros([K, N, N], device=laplacian.device, dtype=torch.float) 
         multi_order_laplacian[0] = torch.eye(N, device=laplacian.device, dtype=torch.float)
 
         if K == 1:
@@ -252,7 +252,7 @@ class STEncoder(nn.Module):
         """
         return the laplacian of the graph.
 
-        :param graph: the graph structure **without** self loop, [N, N].
+        :param graph: the graph structure **without** self loop, [v, v].
         :param normalize: whether to used the normalized laplacian.
         :return: graph laplacian.
         """
@@ -296,7 +296,7 @@ class TemporalConvLayer(nn.Module):
         :param x: (n,c,l,v)
         :return: (n,c,l-kt+1,v)
         """
-        x_in = self.align(x)[:, :, self.kt - 1:, :]  # (batch_size, c_out, input_length-kt+1, num_nodes)
+        x_in = self.align(x)[:, :, self.kt - 1:, :]  
         if self.act == "GLU":
             x_conv = self.conv(x)
             return (x_conv[:, :self.c_out, :, :] + x_in) * torch.sigmoid(x_conv[:, self.c_out:, :, :])
@@ -358,7 +358,6 @@ class Pooler(nn.Module):
         x_in = self.align(x)[:, :, -self.n_query:, :] # ncqv
         # calculate the attention matrix A using key x   
         A = self.att(x) # x: nclv, A: nqlv 
-        # A *=  torch.tensor(math.sqrt(self.d_model), dtype=A.dtype, device=A.device) # TODO: attention为啥除以\sqrt{D}
         A = F.softmax(A, dim=2) # nqlv
 
         # calculate region embeding using attention matrix A

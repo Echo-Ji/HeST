@@ -90,13 +90,12 @@ def get_dataloader(data_dir, dataset, batch_size, test_batch_size, scalar_type='
         cat_data = np.load(os.path.join(data_dir, dataset, category + '.npz'))
         data['x_' + category] = cat_data['x']
         data['y_' + category] = cat_data['y']
-        # print(category, data['x_' + category].shape)
     scaler = normalize_data(np.concatenate([data['x_train'], data['x_val']], axis=0), scalar_type)
-    # scaler = StandardScaler(mean=data['x_train'].mean(), std=data['x_train'].std())
+    
     # Data format
     for category in ['train', 'val', 'test']:
         data['x_' + category] = scaler.transform(data['x_' + category])
-        data['y_' + category] = scaler.transform(data['y_' + category]) # y 其实不需要transform
+        data['y_' + category] = scaler.transform(data['y_' + category])
     # Construct dataloader
     dataloader = {}
     dataloader['train'] = STDataloader(
@@ -122,6 +121,6 @@ def get_dataloader(data_dir, dataset, batch_size, test_batch_size, scalar_type='
     return dataloader
 
 if __name__ == '__main__':
-    loader = get_dataloader('../data/', 'BikeNYC', batch_size=64, test_batch_size=64)
+    loader = get_dataloader('../data/', 'NYCBike1', batch_size=64, test_batch_size=64)
     for key in loader.keys():
         print(key)
