@@ -24,7 +24,7 @@ nmb_prototype: 50           # number of cluster
 yita: 0.5                   # balance for inflow loss and outflow loss, $yita * inflow + (1 - yita) * outflow$
 
 ## train
-epochs: 2
+epochs: 100
 lr_init: 0.0005
 early_stop: True
 early_stop_patience: 15
