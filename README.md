@@ -19,3 +19,5 @@ If the environment is ready, please run the following commands to train model on
 >> cd HeST
 >> ./runme 0 NYCBike1   # 0 gives the gpu id
 ```
+
+This repo contains the NYCBike1 data. If you are interested in other datasets, please download from [HeSTDataset](https://github.com/Echo-Ji/HeSTDataset).
