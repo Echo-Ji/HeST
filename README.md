@@ -1,8 +1,8 @@
-## HeST
+# HeST
 
 This is a Pytorch implementation of the <u>He</u>terogeneity-aware <u>S</u>patial <u>T</u>emporal (HeST) framework for traffic flow prediction in a self-supervised learning fashion.
 
-### Requirement
+## Requirement
 
 We build this project by Python 3.8 with the following packages: 
 ```
@@ -12,7 +12,7 @@ PyYAML==6.0
 torch==1.10.1
 ```
 
-### Model training and Evaluation
+## Model training and Evaluation
 
 If the environment is ready, please run the following commands to train model on the specific dataset from `{NYCBike1, NYCBike2, NYCTaxi, BJTaxi}`.
 ```bash
@@ -21,3 +21,16 @@ If the environment is ready, please run the following commands to train model on
 ```
 
 This repo contains the NYCBike1 data. If you are interested in other datasets, please download from [HeSTDataset](https://github.com/Echo-Ji/HeSTDataset).
+
+## Cite
+
+If you find the paper useful, please cite as following:
+
+```
+@inproceedings{ji2023model, 
+  title={Modeling Spatio-Temporal Heterogeneity for Traffic Flow Prediction via Self-Supervised Learning}, 
+  author={Ji, Jiahao and Wang, Jingyuan and Huang, Chao and Wu, Junjie and Xu, Boren and Wu, Zhenhe and Zhang, Junbo and Zheng, Yu}, 
+  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence}, 
+  year={2023}
+}
+```
