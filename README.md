@@ -1,6 +1,10 @@
-# HeST
+# HeST (a.k.a ST-SSL)
 
-This is a Pytorch implementation of the <u>He</u>terogeneity-aware <u>S</u>patial <u>T</u>emporal (HeST) framework for traffic flow prediction in a self-supervised learning fashion.
+This is a Pytorch implementation of the <u>He</u>terogeneity-aware <u>S</u>patial <u>T</u>emporal (HeST) framework in the following paper:
+
+* J. Ji, J. Wang, C. Huang, et al. "Spatio-Temporal Self-Supervised Learning for Traffic Flow Prediction". in Thirty-Seventh AAAI Conference on Artificial Intelligence, 2023. 
+
+Please visit the newer version at [ST-SSL](https://github.com/Echo-Ji/ST-SSL) repo.
 
 ## Requirement
 
@@ -20,9 +24,9 @@ If the environment is ready, please run the following commands to train model on
 >> ./runme 0 NYCBike1   # 0 gives the gpu id
 ```
 
-This repo contains the NYCBike1 data. If you are interested in other datasets, please download from [HeSTDataset](https://github.com/Echo-Ji/HeSTDataset).
+This repo contains the NYCBike1 data. If you are interested in other datasets, please download from [ST-SSL_Dataset](https://github.com/Echo-Ji/ST-SSL_Dataset).
 
-## Cite
+<!-- ## Cite
 
 If you find the paper useful, please cite as following:
 
@@ -33,4 +37,4 @@ If you find the paper useful, please cite as following:
   booktitle={Proceedings of the AAAI Conference on Artificial Intelligence}, 
   year={2023}
 }
-```
+``` -->
